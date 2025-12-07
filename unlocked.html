@@ -1,209 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>For Tulip 🌷</title>
-
 <style>
-  body {
-    margin: 0;
-    background: linear-gradient(135deg, #1b1b1b, #000);
-    font-family: "Poppins", sans-serif;
-    color: white;
-    height: 100vh;
-    overflow: hidden;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Parisienne&display=swap');
 
-  #container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    max-width: 700px;
-    text-align: center;
-    animation: fadeIn 2.5s ease;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #1a1a1a, #3d0038);
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
 
-  .title {
-    font-size: 60px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    animation: glow 4s ease-in-out infinite alternate;
-  }
+    .tulip {
+        position: fixed;
+        top: -10px;
+        font-size: 24px;
+        animation: fall linear infinite;
+        opacity: 0.8;
+    }
 
-  @keyframes glow {
-    0% { text-shadow: 0 0 15px #ff4d6d; }
-    100% { text-shadow: 0 0 30px #ff006a; }
-  }
+    @keyframes fall {
+        0% { transform: translateY(-10px); }
+        100% { transform: translateY(110vh); }
+    }
 
-  #message {
-    margin-top: 20px;
-    font-size: 20px;
-    line-height: 1.7;
-    opacity: 0.95;
-    white-space: pre-line;
-  }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        text-align: center;
+        padding: 40px 20px;
+    }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translate(-50%, -45%); }
-    to   { opacity: 1; transform: translate(-50%, -50%); }
-  }
+    h1 {
+        font-family: 'Parisienne', cursive;
+        font-size: 68px;
+        margin-bottom: 10px;
+        color: #ffb7ff;
+        text-shadow: 0 0 20px #ff7dff;
+        animation: glow 3s ease-in-out infinite alternate;
+    }
 
-  .rose {
-    position: absolute;
-    font-size: 26px;
-    animation: fall 8s linear infinite;
-    opacity: 0.8;
-  }
+    @keyframes glow {
+        from { text-shadow: 0 0 20px #ff7dff; }
+        to { text-shadow: 0 0 40px #ff00ff; }
+    }
 
-  @keyframes fall {
-    0% { transform: translateY(-10vh) rotate(0deg); }
-    100% { transform: translateY(110vh) rotate(150deg); }
-  }
+    .letter {
+        font-size: 19px;
+        text-align: left;
+        line-height: 1.9;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(255, 0, 150, 0.4);
+        margin-top: 40px;
+        border: 1px solid rgba(255, 180, 255, 0.3);
+        animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .signature {
+        margin-top: 30px;
+        font-size: 22px;
+        font-family: 'Parisienne', cursive;
+        text-align: right;
+        color: #ffc6ff;
+    }
+
+    .question {
+        margin-top: 50px;
+        font-size: 24px;
+        text-align: center;
+        font-weight: 600;
+        color: #ffd6ff;
+        animation: glow2 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow2 {
+        from { text-shadow: 0 0 15px #ff78ff; }
+        to { text-shadow: 0 0 35px #ff00ae; }
+    }
 </style>
 </head>
 
 <body>
 
 <audio autoplay loop>
-  <source src="https://files.catbox.moe/2n0k3j.mp3" type="audio/mpeg">
+    <source src="https://cdn.pixabay.com/audio/2022/10/19/audio_b4d7ef9c78.mp3" type="audio/mpeg" />
 </audio>
 
 <script>
-for (let i = 0; i < 30; i++) {
-  let r = document.createElement("div");
-  r.className = "rose";
-  r.innerHTML = "🌹";
-  r.style.left = Math.random() * 100 + "vw";
-  r.style.animationDuration = 5 + Math.random() * 7 + "s";
-  document.body.appendChild(r);
-}
+    for (let i = 0; i < 30; i++) {
+        let tulip = document.createElement("div");
+        tulip.className = "tulip";
+        tulip.innerHTML = "🌷";
+        tulip.style.left = Math.random() * 100 + "vw";
+        tulip.style.animationDuration = 5 + Math.random() * 6 + "s";
+        tulip.style.fontSize = 20 + Math.random() * 20 + "px";
+        document.body.appendChild(tulip);
+    }
 </script>
 
-<div id="container">
-  <div class="title">Happy Birthday, Tulip 🌷</div>
+<div class="container">
+    <h1>For My Tulip 🌷</h1>
 
-  <div id="message"></div>
+    <div class="letter">
+        <p>Dear Tulip,</p>
+
+        <p>
+        I don’t know if you’ll read this with a smile, with silence, or with nothing at all —  
+        but I still wanted to say everything I never said right.
+        </p>
+
+        <p>
+        I know you’re not talking to me now, and yes… you blocked me — not because of what I felt,
+        but because **I told you to**, fearing that I’d end up bothering you,
+        texting you desperately, hurting you more by trying too much.
+        </p>
+
+        <p>
+        And even today, when I think about it, it breaks me a little.
+        Not because you blocked me…
+        but because I pushed you into that position.
+        </p>
+
+        <p>
+        I accept that things may never be the same again.  
+        And I can’t bend time backward —  
+        but if I could, Tulip…  
+        I would return to the moments when everything was simple,
+        when your voice felt like peace,
+        when our conversations flowed without fear.
+        </p>
+
+        <p>
+        I would choose to be calmer, softer, and braver in the right way.  
+        I wouldn’t let my impatience hurt you.  
+        I wouldn’t let my fears speak louder than my heart.
+        </p>
+
+        <p>
+        You were the only person I wanted to come back to,
+        even on the days I couldn’t explain myself.
+        </p>
+
+        <p>
+        And today, on your birthday, I didn’t want to disturb your life —  
+        but I couldn’t let the day pass without reminding you  
+        how important you’ve been to me.
+        </p>
+
+        <p>
+        Tulip… you have no idea how much space your presence still holds inside me.  
+        I said many stupid things, acted in stupid ways,  
+        but everything came from fear of losing you —  
+        and ironically, that fear itself made me lose you.
+        </p>
+
+        <p>
+        I don’t expect anything from you.  
+        Not forgiveness.  
+        Not a reply.  
+        Not a comeback.  
+        Nothing.
+        </p>
+
+        <p>
+        This page is just something from Pookie 🎀  
+        to the girl he associates with tulips —  
+        soft, rare, and quietly beautiful.
+        </p>
+
+        <p>
+        I miss the version of us that laughed,  
+        the version that talked about nothing and everything,  
+        the version where I didn’t overthink every message.
+        </p>
+
+        <p>
+        And maybe this means nothing now…  
+        but I still wanted you to have something special today.  
+        Because no matter how far we drift,  
+        you deserve gentleness —  
+        even from me.
+        </p>
+
+        <p class="signature">
+            Always,  
+            Pookie 🎀
+        </p>
+    </div>
+
+    <div class="question">
+        “Did you really never feel anything for me… even for a moment?”
+    </div>
+
 </div>
-
-<script>
-let text = `
-FADE IN:
-
-Soft music in the background.
-A quiet night. Stars breathing slowly.
-
-And in the middle of that silence… your name.
-
-Tulip 🌷.
-
-Today is your day.
-And Pookie 🎀 wanted to give you something that feels like a moment — not just a message.
-
-So here it is…
-
-A scene.
-A memory.
-A small world built only for you.
-
-———
-
-SCENE ONE:
-Pookie 🎀 sitting quietly,
-thinking about how to say what his heart has been carrying.
-
-“I know you're not talking to me now…  
-and you only blocked me because *I* told you to —  
-because I didn't want to disturb you by texting desperately.”
-
-“I accept that things may never be the same.”
-
-A pause. A breath.
-
-“If I could go back in time…  
-I would choose to be softer.  
-More patient.  
-Someone who made you feel lighter, not heavier.”
-
-———
-
-SCENE TWO:
-Lights dim.
-
-Pookie 🎀 remembers every moment when Tulip 🌷 smiled.
-How everything around him felt different.
-How her presence changed the whole air.
-
-And he whispers the truth:
-
-“Tulip 🌷…  
-I’ve never loved anyone the way I love you.  
-Not loudly.  
-Not forcefully.  
-Just deeply.  
-Quietly.  
-Honestly.”
-
-———
-
-SCENE THREE:
-The question that has been living in his chest…
-
-“Kya tujhe kabhi bhi…  
-mere liye  
-kuch bhi feel nahi hua?”
-
-The world stops for a second.
-
-———
-
-SCENE FOUR:
-Everything he couldn't say before,
-everything he wished he had done differently…
-
-He writes:
-
-“I don't expect anything from you.  
-Not a reply.  
-Not forgiveness.  
-Not anything.”
-
-“I just want you to know…  
-you were the most unexpected,  
-the most beautiful part  
-of my life.”
-
-———
-
-FADE OUT:
-Roses fall slowly.
-Music softens.
-
-Final line:
-
-“For whatever I was,
-for whatever I couldn't be,
-and for whatever will always remain unsaid…
-
-Tulip 🌷,
-a part of my heart ❤️ 
-will always love you.”
-`;
-
-let i = 0;
-let speed = 40;
-
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("message").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
-  }
-}
-
-typeWriter();
-</script>
 
 </body>
 </html>
