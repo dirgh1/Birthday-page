@@ -103,13 +103,14 @@
 <div class="box">
   <h2>Enter Password 🌙</h2>
   <input id="pass" type="text" placeholder="Type password…" />
+  <br>
   <button onclick="unlock()">Unlock</button>
   <div class="hint">Hint: The flower I always associate with you 🌷</div>
 </div>
 
 <script>
 function unlock() {
-  const correct = "Tulip 🌷";
+  const correct = "Tulip";
   const typed = document.getElementById("pass").value.trim();
   if (typed === correct) {
     window.location.href = "unlocked.html";
