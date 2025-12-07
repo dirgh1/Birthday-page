@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Himani</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #ffe6eb, #ffd1dc);
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+    }
+
+    .petal {
+        position: fixed;
+        width: 18px;
+        height: 18px;
+        background: pink;
+        opacity: 0.6;
+        border-radius: 50%;
+        animation: floatDown 10s linear infinite;
+    }
+
+    @keyframes floatDown {
+        from { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; }
+        to { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+
+    .card {
+        max-width: 750px;
+        margin: 80px auto;
+        background: rgba(255, 255, 255, 0.25);
+        padding: 40px;
+        border-radius: 25px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(25px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        font-family: "Great Vibes", cursive;
+        text-align: center;
+        font-size: 50px;
+        color: #d6336c;
+        margin-bottom: 10px;
+    }
+
+    h3 {
+        text-align: center;
+        font-weight: 400;
+        color: #555;
+    }
+
+    p {
+        line-height: 1.8;
+        font-size: 17px;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    .question {
+        margin-top: 35px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.35);
+        border-radius: 15px;
+        text-align: center;
+        font-weight: 500;
+        border-left: 5px solid #ff4f7a;
+        font-size: 19px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<script>
+    for (let i = 0; i < 25; i++) {
+        let petal = document.createElement("div");
+        petal.className = "petal";
+        petal.style.left = Math.random() * 100 + "vw";
+        petal.style.animationDelay = Math.random() * 8 + "s";
+        petal.style.animationDuration = (8 + Math.random() * 8) + "s";
+        document.body.appendChild(petal);
+    }
+</script>
+
+<div class="card">
+    <h1>Happy Birthday, Himani 🌷</h1>
+    <h3>From someone who still wishes the best for you</h3>
+
+    <p>
+        I don’t know where we stand today… but I remember where we once were.  
+        And maybe things will never be the same, maybe life took both of us in different directions —  
+        but that doesn’t erase the truth of what I feel.
+    </p>
+
+    <p>
+        I’m sorry for every moment I hurt you, every time I made you feel unheard.  
+        I never wanted to be the reason you felt heavy.  
+        I genuinely wished I could’ve protected your peace instead.
+    </p>
+
+    <p>
+        Even if life made us distant… even if you had to block me…  
+        I still wish you happiness, growth, and the kind of peace that feels like home.
+    </p>
+
+    <p>
+        I don’t expect anything in return.  
+        Not a reply.  
+        Not a comeback.  
+        Just wanted to say this once — truly, calmly.
+    </p>
+
+    <div class="question">
+        “Have you ever felt anything for me?”  
+        <br><small>(Kya tujhe kabhi bhi mere liye kuch feel hua?)</small>
+    </div>
+</div>
+
+</body>
+</html>
