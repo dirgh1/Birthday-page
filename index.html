@@ -1,125 +1,117 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Unlock</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Open for Himani</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#05060a;
+    --bg2:#13121a;
+    --rose1:#ff5370;
+    --rose2:#ffb3c6;
+    --accent:#ffd166;
+    --glass: rgba(255,255,255,0.04);
+  }
+  html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:#eef2f7}
+  .stage{
+    height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden;
+  }
 
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #000);
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      overflow: hidden;
-    }
+  /* soft glow blobs */
+  .blob{
+    position:absolute;border-radius:50%;filter:blur(90px);opacity:0.55;
+  }
+  .blob.one{width:360px;height:360px;left:-6%;top:-10%;background:linear-gradient(90deg,var(--rose1),var(--rose2))}
+  .blob.two{width:420px;height:420px;right:-8%;bottom:-8%;background:linear-gradient(90deg,var(--accent),#ff6b6b);opacity:0.35}
 
-    .glow {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: #ff006a;
-      filter: blur(150px);
-      animation: float 6s ease-in-out infinite alternate;
-      opacity: 0.4;
-    }
-    .glow2 {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: #ff8800;
-      filter: blur(150px);
-      animation: float2 6s ease-in-out infinite alternate;
-      opacity: 0.4;
-    }
+  /* lock card */
+  .card{
+    width:100%;max-width:520px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:18px;padding:34px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 18px 60px rgba(0,0,0,0.6);
+    text-align:center;backdrop-filter: blur(6px);position:relative;z-index:3;
+  }
+  h1{font-family:'Great Vibes',cursive;margin:0;font-size:36px;color:#fff}
+  p.lead{margin:6px 0 18px;color:#dfe9f7cc}
+  input[type="text"]{
+    width:76%;padding:12px;border-radius:12px;border:none;background:rgba(255,255,255,0.04);
+    color:#fff;font-size:18px;text-align:center;outline:none;margin-bottom:12px;
+  }
+  button.unlock{
+    padding:12px 22px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--rose1),var(--accent));
+    color:#081122;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 8px 30px rgba(255,83,112,0.12);
+  }
+  .hint{margin-top:10px;font-size:13px;color:#cddff6;opacity:0.9}
 
-    @keyframes float {
-      from { transform: translate(-100px, -120px); }
-      to { transform: translate(100px, 120px); }
-    }
-    @keyframes float2 {
-      from { transform: translate(150px, 50px); }
-      to { transform: translate(-120px, -80px); }
-    }
+  /* floating roses (SVG avatars) */
+  .rose{
+    position:absolute;width:42px;height:42px;opacity:0.95;transform-origin:center center;animation:float 5s ease-in-out infinite;
+  }
+  .rose.r1{left:12%;top:12%;animation-delay:0s}
+  .rose.r2{right:16%;top:18%;animation-delay:1.2s}
+  .rose.r3{left:8%;bottom:18%;animation-delay:2.1s}
+  .rose.r4{right:6%;bottom:10%;animation-delay:0.7s}
 
-    .box {
-      text-align: center;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 40px 50px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(255, 0, 80, 0.4);
-      animation: fadeIn 2s ease;
-      z-index: 2;
-    }
+  @keyframes float{
+    0%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(-14px) rotate(8deg)}
+    100%{transform:translateY(0) rotate(0deg)}
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  /* footer small */
+  .foot{margin-top:14px;font-size:13px;color:#bcd3f8;opacity:0.9}
 
-    h2 {
-      margin-bottom: 15px;
-      font-size: 30px;
-    }
-
-    input {
-      width: 260px;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      outline: none;
-      margin-bottom: 20px;
-      text-align: center;
-      font-size: 20px;
-      background: #ffffff10;
-      color: white;
-    }
-
-    button {
-      padding: 12px 30px;
-      background: #ff006a;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      font-size: 18px;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #ff2e85;
-    }
-  </style>
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .rose,.blob{animation:none}
+  }
+</style>
 </head>
-
 <body>
+  <div class="stage" role="main">
+    <div class="blob one" aria-hidden="true"></div>
+    <div class="blob two" aria-hidden="true"></div>
 
-<div class="glow"></div>
-<div class="glow2"></div>
+    <div class="card" aria-labelledby="openTitle">
+      <h1 id="openTitle">For Himani</h1>
+      <p class="lead">Open gently — I made this for your birthday.</p>
 
-<div class="box">
-  <h2>Enter Password 🌷</h2>
-  <input id="pass" type="text" placeholder="Type password…" />
-  <br>
-  <button onclick="unlock()">Unlock</button>
-</div>
+      <input id="password" type="text" placeholder="Type the password (emoji allowed)" aria-label="Password input" autocomplete="off" />
+      <br>
+      <button class="unlock" onclick="tryUnlock()">Unlock</button>
+
+      <div class="hint">Hint: The flower I always associate with you.</div>
+      <div class="foot">If this feels heavy, you can close this page anytime — I only wanted you to know.</div>
+    </div>
+
+    <!-- floating rose SVGs -->
+    <svg class="rose r1" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff6b82" d="M12 2s-1.5 3-3.7 2.8C6.1 4.6 5 7 6.2 8.7c1.2 1.7-.1 3.3-1.6 2.8C2.6 10.8 3 13 5 14.2c2 1.2 1.2 4.3 4.1 4.8 2.9.5 3.1-2.6 6-3.5 2.9-.9 3.6-3.2 1.8-4.8C15.5 9.1 16 7 14.3 6.7 12.6 6.4 12 2 12 2z"/></svg>
+    <svg class="rose r2" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff8aa3" d="M12 2s-1.5 3-3.7 2.8C6.1 4.6 5 7 6.2 8.7c1.2 1.7-.1 3.3-1.6 2.8C2.6 10.8 3 13 5 14.2c2 1.2 1.2 4.3 4.1 4.8 2.9.5 3.1-2.6 6-3.5 2.9-.9 3.6-3.2 1.8-4.8C15.5 9.1 16 7 14.3 6.7 12.6 6.4 12 2 12 2z"/></svg>
+    <svg class="rose r3" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff6b82" d="M12 2s-1.5 3-3.7 2.8C6.1 4.6 5 7 6.2 8.7c1.2 1.7-.1 3.3-1.6 2.8C2.6 10.8 3 13 5 14.2c2 1.2 1.2 4.3 4.1 4.8 2.9.5 3.1-2.6 6-3.5 2.9-.9 3.6-3.2 1.8-4.8C15.5 9.1 16 7 14.3 6.7 12.6 6.4 12 2 12 2z"/></svg>
+    <svg class="rose r4" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffb3c6" d="M12 2s-1.5 3-3.7 2.8C6.1 4.6 5 7 6.2 8.7c1.2 1.7-.1 3.3-1.6 2.8C2.6 10.8 3 13 5 14.2c2 1.2 1.2 4.3 4.1 4.8 2.9.5 3.1-2.6 6-3.5 2.9-.9 3.6-3.2 1.8-4.8C15.5 9.1 16 7 14.3 6.7 12.6 6.4 12 2 12 2z"/></svg>
+
+  </div>
 
 <script>
-  function unlock() {
-    const correct = "Tulip 🌷"; // ← PASSWORD HERE
-    const typed = document.getElementById("pass").value.trim();
+  // Password is exact string including emoji:
+  const CORRECT = "Tulip 🌷";
 
-    if (typed === correct) {
-      window.location.href = "unlocked.html";
+  function tryUnlock(){
+    const v = document.getElementById('password').value.trim();
+    if(v === CORRECT){
+      // small visual ease
+      document.querySelector('.card').style.transform = 'scale(0.98)';
+      setTimeout(()=> window.location.href = 'unlocked.html', 300);
     } else {
-      alert("Wrong password 😔");
+      alert("Incorrect password — please try again.");
     }
   }
-</script>
 
+  // allow Enter key
+  document.getElementById('password').addEventListener('keydown', function(e){
+    if(e.key === 'Enter') tryUnlock();
+  });
+</script>
 </body>
 </html>
