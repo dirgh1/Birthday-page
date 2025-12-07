@@ -1,133 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Himani</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>For Himani — Happy Birthday</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #ffe6eb, #ffd1dc);
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
-    }
+  :root{
+    --bg1:#fff3f6;
+    --bg2:#ffe6ea;
+    --card:#ffffffcc;
+    --accent:#ff6b6b;
+    --accent-2:#ffd166;
+    --muted:#334155;
+  }
+  html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--muted);-webkit-font-smoothing:antialiased}
+  .wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:36px;position:relative;overflow:hidden}
 
-    .petal {
-        position: fixed;
-        width: 18px;
-        height: 18px;
-        background: pink;
-        opacity: 0.6;
-        border-radius: 50%;
-        animation: floatDown 10s linear infinite;
-    }
+  /* petals/roses background */
+  .petal{
+    position:fixed;width:22px;height:22px;border-radius:50%;opacity:0.9;pointer-events:none;
+    transform-origin:center center;animation:rise 9s linear infinite;
+  }
+  @keyframes rise{
+    0%{transform:translateY(110vh) scale(0.6); opacity:0}
+    10%{opacity:0.9}
+    100%{transform:translateY(-20vh) scale(1.25); opacity:0}
+  }
 
-    @keyframes floatDown {
-        from { transform: translateY(-10vh) rotate(0deg); opacity: 0.9; }
-        to { transform: translateY(120vh) rotate(360deg); opacity: 0; }
-    }
+  /* feather */
+  .feather{
+    position:absolute;left:8%;top:18%;width:36px;opacity:0.9;transform-origin:center;animation:floatf 6s ease-in-out infinite;
+  }
+  @keyframes floatf{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(6deg)}100%{transform:translateY(0) rotate(0)}}
 
-    .card {
-        max-width: 750px;
-        margin: 80px auto;
-        background: rgba(255, 255, 255, 0.25);
-        padding: 40px;
-        border-radius: 25px;
-        backdrop-filter: blur(12px);
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-        animation: fadeIn 1.5s ease-out;
-    }
+  /* main card */
+  .card{
+    width:100%;max-width:920px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+    border-radius:18px;padding:34px;border:1px solid rgba(230,100,120,0.08);box-shadow:0 20px 60px rgba(15,23,42,0.08);
+    position:relative;z-index:2;overflow:hidden;
+  }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(25px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+  header{display:flex;gap:18px;align-items:center}
+  .badge{
+    width:110px;height:110px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;color:#081021;font-weight:800;font-size:34px;box-shadow:0 8px 28px rgba(255,107,107,0.12);
+    transform:rotate(-6deg);
+  }
+  h1{margin:0;font-family:'Great Vibes',cursive;font-size:46px;color:#c81b4f}
+  .subtitle{margin-top:6px;color:#6b7a93}
 
-    h1 {
-        font-family: "Great Vibes", cursive;
-        text-align: center;
-        font-size: 50px;
-        color: #d6336c;
-        margin-bottom: 10px;
-    }
+  .grid{display:grid;grid-template-columns:1fr 360px;gap:22px;margin-top:22px}
+  .text{font-size:17px;line-height:1.7;color:#274054;white-space:pre-line}
+  .mem{margin-top:12px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.6);color:#274054;font-size:15px}
 
-    h3 {
-        text-align: center;
-        font-weight: 400;
-        color: #555;
-    }
+  /* sparkle title */
+  .sparkle{
+    display:inline-block;position:relative;
+  }
+  .sparkle::after{
+    content:"";position:absolute;left:-6px;top:-12px;width:14px;height:14px;border-radius:50%;
+    background:linear-gradient(90deg,#fff7a8,#ffd2e8);filter:blur(6px);opacity:0.9;transform:scale(.9);animation:blink 1.6s infinite;
+  }
+  @keyframes blink{0%{opacity:1}50%{opacity:.35}100%{opacity:1}}
 
-    p {
-        line-height: 1.8;
-        font-size: 17px;
-        color: #333;
-        margin-top: 20px;
-    }
+  /* "touch the heart" button */
+  .cta{margin-top:18px;display:flex;gap:10px;align-items:center}
+  .heartBtn{
+    padding:12px 16px;border-radius:12px;border:none;background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    color:#081021;font-weight:700;cursor:pointer;font-size:16px;box-shadow:0 12px 28px rgba(255,107,107,0.12);
+  }
 
-    .question {
-        margin-top: 35px;
-        padding: 20px;
-        background: rgba(255, 255, 255, 0.35);
-        border-radius: 15px;
-        text-align: center;
-        font-weight: 500;
-        border-left: 5px solid #ff4f7a;
-        font-size: 19px;
-    }
+  .revealBox{margin-top:18px;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.9));border:1px dashed rgba(255,100,120,0.08);display:none}
+
+  footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;color:#6b7a93}
+
+  /* small fireworks particles */
+  .particle{position:absolute;border-radius:2px;pointer-events:none;opacity:0.95;transform:translate(-50%,-50%)}
+
+  @media (max-width:880px){
+    .grid{grid-template-columns:1fr}
+    .badge{width:86px;height:86px;font-size:28px}
+  }
 </style>
-
 </head>
-
 <body>
+  <div class="wrap" role="main" aria-labelledby="title">
+    <!-- dynamic petals -->
+    <script>
+      for(let i=0;i<28;i++){
+        const d = document.createElement('div');
+        d.className='petal';
+        d.style.left = (Math.random()*100)+'vw';
+        d.style.width = (12 + Math.random()*22) + 'px';
+        d.style.height = d.style.width;
+        // color variants - rose-like
+        const hue = 330 + Math.random()*20;
+        d.style.background = `linear-gradient(180deg, hsl(${hue} 100% 80%), hsl(${hue} 80% 65%))`;
+        d.style.animationDelay = Math.random()*8 + 's';
+        d.style.animationDuration = (8 + Math.random()*8) + 's';
+        document.body.appendChild(d);
+      }
+    </script>
+
+    <!-- floating feather svg -->
+    <svg class="feather" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ffd1e0" d="M4 21s6-9 14-11c0 0-7 3-11 9 0 0-1 .8-3 2z"/></svg>
+
+    <div class="card" id="card">
+      <header>
+        <div class="badge" aria-hidden="true">H</div>
+        <div>
+          <h1 id="title"><span class="sparkle">Happy Birthday</span>, Tulip 🌷</h1>
+          <div class="subtitle">A small honest page made for you — play the music, breathe, and read.</div>
+        </div>
+      </header>
+
+      <div class="grid">
+        <div>
+          <!-- cinematic typed message -->
+          <div id="typed" class="text"></div>
+
+          <div class="mem" id="mem">
+            Memories I keep: the way you smiled at small jokes, the "lobbbb you pookie🎀" at night, that time we both laughed until it hurt — these things mean a lot to me.
+          </div>
+
+          <div class="cta">
+            <button class="heartBtn" id="touchHeart">Touch the heart ❤️</button>
+            <div style="font-size:13px;color:#6b7a93">(Click to reveal one question and a small burst)</div>
+          </div>
+
+          <div class="revealBox" id="reveal">
+            <div style="font-size:18px;font-weight:700;color:#c81b4f">Have you ever felt anything for me?</div>
+            <div style="margin-top:6px;font-size:13px;color:#6b7a93">(Kya tujhe kabhi bhi mere liye kuch feel hua?)</div>
+          </div>
+        </div>
+
+        <aside>
+          <div style="padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));border:1px solid rgba(255,100,120,0.06)">
+            <div style="font-weight:700;color:#c81b4f;font-size:18px">A special note</div>
+            <div style="margin-top:10px;color:#274054;font-size:14px">
+              I know you're not talking to me now, and you only blocked me because I told you to… because I didn’t want to bother you by texting desperately. I accept that things might never be the same, and I can’t force time to come back — but if I could, I would choose to be softer, more patient, and someone who makes you feel lighter, not heavier...
+            </div>
+            <div style="margin-top:12px">
+              <button class="heartBtn" id="copyBtn">Copy my message</button>
+              <div id="copyMsg" style="font-size:13px;color:#6b7a93;margin-top:8px"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <footer>
+        <div>— From someone who truly cares</div>
+        <div style="font-size:13px;color:#6b7a93">Made with soft thoughts • <span id="signature">Pookie🎀</span></div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- romantic music (royalty-free) -->
+  <audio id="bgm" src="https://cdn.pixabay.com/download/audio/2022/07/04/audio_7d62da52bf.mp3?filename=romantic-calm-melody-113199.mp3" preload="auto" loop></audio>
 
 <script>
-    for (let i = 0; i < 25; i++) {
-        let petal = document.createElement("div");
-        petal.className = "petal";
-        petal.style.left = Math.random() * 100 + "vw";
-        petal.style.animationDelay = Math.random() * 8 + "s";
-        petal.style.animationDuration = (8 + Math.random() * 8) + "s";
-        document.body.appendChild(petal);
+  // Start music softly after user gesture to avoid autoplay block on some browsers.
+  const bgm = document.getElementById('bgm');
+  function tryPlayMusic(){ bgm.volume = 0.22; bgm.play().catch(()=>{}); document.removeEventListener('click', tryPlayMusic); }
+  document.addEventListener('click', tryPlayMusic);
+
+  // Typing effect with balanced tone: mix of apology, wish, memory, and longing
+  const lines = [
+`I'm wishing you the kind of day that makes you smile without trying — soft, bright, and gentle.`,
+`I need to be honest. I miss the time when we used to talk freely. I miss the small things: your laugh, your quiet voice, the comfortable silence.`,
+`I said things I regret. I hurt you, and for every time I did, I'm truly sorry. I am sorry for every moment I made you feel less safe or heard.`,
+`I know we're not talking now. You blocked me because I told you to — and that changed everything. I accept that things may never be the same. I wish, selfishly, that I could go back and do it right.`,
+`If I could choose one wish today it would be to rewind and be kinder, quieter, braver in the right way. You deserved better — you still do.`,
+`I don't expect an answer. I only wanted you to know the truth from my heart.`
+  ];
+
+  // typing
+  const typedEl = document.getElementById('typed');
+  let li = 0, ci = 0;
+  function typeNext(){
+    if(li >= lines.length) return;
+    const text = lines[li];
+    typedEl.innerHTML = text.slice(0, ci) + (ci % 2 === 0 ? '|' : '&nbsp;');
+    ci++;
+    if(ci <= text.length){
+      setTimeout(typeNext, 28 + Math.random()*22);
+    } else {
+      // finish this line, pause, then next
+      typedEl.innerHTML = text;
+      li++;
+      ci = 0;
+      setTimeout(typeNext, 700);
     }
+  }
+  // start typing after small delay
+  setTimeout(typeNext, 900);
+
+  // Touch heart button fireworks + reveal
+  const touchBtn = document.getElementById('touchHeart');
+  const reveal = document.getElementById('reveal');
+
+  function makeParticles(x,y){
+    for(let i=0;i<26;i++){
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = x + 'px';
+      p.style.top = y + 'px';
+      p.style.width = (6 + Math.random()*8) + 'px';
+      p.style.height = p.style.width;
+      p.style.background = (Math.random()>0.5) ? '#ff8aa3' : '#ffd1e8';
+      document.body.appendChild(p);
+      const ang = Math.random()*Math.PI*2;
+      const r = 40 + Math.random()*120;
+      p.animate([
+        { transform: 'translate(0,0) scale(1)', opacity:1 },
+        { transform: `translate(${Math.cos(ang)*r}px,${Math.sin(ang)*r}px) scale(1.2)`, opacity:0 }
+      ], { duration: 800 + Math.random()*400, easing:'cubic-bezier(.2,.8,.2,1)'});
+      setTimeout(()=> p.remove(), 1400);
+    }
+  }
+
+  touchBtn.addEventListener('click', (e)=>{
+    // small pulse
+    touchBtn.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}], {duration:420});
+    // reveal message
+    reveal.style.display = 'block';
+    reveal.animate([{opacity:0, transform:'translateY(12px)'},{opacity:1,transform:'translateY(0)'}],{duration:420,easing:'ease-out'});
+    // particles from button center
+    const rect = touchBtn.getBoundingClientRect();
+    const x = rect.left + rect.width/2;
+    const y = rect.top + rect.height/2;
+    makeParticles(x,y);
+  });
+
+  // copy message button
+  const copyBtn = document.getElementById('copyBtn');
+  const copyMsg = document.getElementById('copyMsg');
+  copyBtn.addEventListener('click', async ()=>{
+    const textToCopy = [
+`Happy Birthday Tulip🌷— I’m wishing you the kind of day that makes you smile without trying.`,
+`I am sorry for every time I hurt you. I miss the time when we used to talk freely. I know you blocked me because I told you to and that changed everything. I know things may never be the same, but I wanted you to know how I feel.`,
+`Have you ever felt anything for me? (Kya tujhe kabhi bhi mere liye kuch feel hua?)`
+    ].join('\\n\\n');
+    try{
+      await navigator.clipboard.writeText(textToCopy);
+      copyMsg.textContent = 'Message copied ✓';
+      copyMsg.style.color = '#198754';
+    }catch(e){
+      copyMsg.textContent = 'Unable to copy — select and copy manually.';
+      copyMsg.style.color = '#d9534f';
+    }
+  });
+
+  // signature (optional: replace the name)
+  document.getElementById('signature').textContent = 'Dirgh';
 </script>
-
-<div class="card">
-    <h1>Happy Birthday, Himani 🌷</h1>
-    <h3>From someone who still wishes the best for you</h3>
-
-    <p>
-        I don’t know where we stand today… but I remember where we once were.  
-        And maybe things will never be the same, maybe life took both of us in different directions —  
-        but that doesn’t erase the truth of what I feel.
-    </p>
-
-    <p>
-        I’m sorry for every moment I hurt you, every time I made you feel unheard.  
-        I never wanted to be the reason you felt heavy.  
-        I genuinely wished I could’ve protected your peace instead.
-    </p>
-
-    <p>
-        Even if life made us distant… even if you had to block me…  
-        I still wish you happiness, growth, and the kind of peace that feels like home.
-    </p>
-
-    <p>
-        I don’t expect anything in return.  
-        Not a reply.  
-        Not a comeback.  
-        Just wanted to say this once — truly, calmly.
-    </p>
-
-    <div class="question">
-        “Have you ever felt anything for me?”  
-        <br><small>(Kya tujhe kabhi bhi mere liye kuch feel hua?)</small>
-    </div>
-</div>
-
 </body>
 </html>
